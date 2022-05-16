@@ -1,5 +1,8 @@
 @url = http://localhost:8080/api/agent
 
+//NOTE: addSecurityClearance was diasbled to make the service work.
+//The Clearance defaults to zero in the Agent model
+
 GET {{url}} HTTP/1.1
 
 ###
@@ -20,3 +23,20 @@ Content-Type: application/json
     "heightInInches": 41,
     "agencies": []
 }
+
+###
+
+POST  {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "middleName": "A",
+    "lastName": "Smith",
+    "dob": "1975-12-21",
+    "heightInInches": "75"
+}
+
+###
+
+DELETE {{url}}/9 HTTP/1.1
